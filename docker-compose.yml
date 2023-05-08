@@ -1,0 +1,77 @@
+version: "3.9"
+services:
+  mysqlservice:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    container_name: mysql-container-micro1
+    networks:
+      - user-product-net
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+
+  mongodbservice:
+    image: mongo:latest
+    container_name: mongo-container1
+    networks:
+      - user-product-net
+    ports:
+      - "27017:27017"
+
+  userauthenticationservice:
+    container_name: user-authentication-service-micro1
+    build: UserAuthenticationService/
+    networks:
+      - user-product-net
+    ports:
+      - "8086:8086"
+    depends_on:
+      - mysqlservice
+    restart: always
+
+  usersongservice:
+    container_name: user-song-service
+    build: UserSongService/
+    networks:
+      - user-product-net
+    ports:
+      - "8084:8084"
+    depends_on:
+      - mongodbservice
+    restart: always
+
+  apigateway:
+    container_name: spring-cloud-api-gateway
+    build: springCloudAPIGateway/
+    networks:
+      - user-product-net
+    ports:
+      - "9002:9002"
+    depends_on:
+      - userauthenticationservice
+      - usersongservice
+      - eureka-service
+
+  eureka-service:
+    container_name: eureka-service
+    build: EurekaServer/
+    restart: always
+    networks:
+      - user-product-net
+    ports:
+      - "8761:8761"
+
+networks:
+  user-product-net:
+    driver: bridge
+
+
+
+
+
+
+
+
