@@ -1,0 +1,10 @@
+com\bej\userauthenticationservice\controller\UserController.class
+com\bej\userauthenticationservice\security\JWTSecurityTokenGeneratorImpl.class
+com\bej\userauthenticationservice\UserAuthenticationServiceApplication.class
+com\bej\userauthenticationservice\repository\UserRepository.class
+com\bej\userauthenticationservice\exception\UserAlreadyExistsException.class
+com\bej\userauthenticationservice\security\SecurityTokenGenerator.class
+com\bej\userauthenticationservice\service\UserService.class
+com\bej\userauthenticationservice\service\UserServiceImpl.class
+com\bej\userauthenticationservice\exception\InvalidCredentialsException.class
+com\bej\userauthenticationservice\domain\User.class
