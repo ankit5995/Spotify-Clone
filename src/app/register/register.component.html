@@ -1,0 +1,97 @@
+<article class="register">
+
+    <header>
+
+        <a class="spotify" routerLink="/">
+            <img
+            class="logo"
+            src="../assets/logo.svg"
+            alt="spotify logo"
+        />
+
+        <span>Spotify</span>
+        </a>
+
+    </header>
+
+
+    <form #form="ngForm">
+        <mat-form-field appearance="outline">
+
+            <mat-label>Email</mat-label>
+
+            <input type="email" matInput name="email" [(ngModel)]="user.email" #email="ngModel" placeholder="Ex. pat@example.com" required
+                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+
+            <mat-error *ngIf="(email.touched || email.dirty) && email.errors?.['required']">
+                Email is required
+            </mat-error>
+
+            <mat-error *ngIf="(email.touched || email.dirty) && email.errors?.['pattern']">
+                Please enter a valid email address
+            </mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+
+            <mat-label>Password</mat-label>
+
+            <input type="password" matInput name="password" [(ngModel)]="user.password" #password="ngModel" required pattern="^(?=.*\d).{8,}$">
+
+            <mat-error *ngIf="(password.touched || password.dirty) && password.errors?.['required']">
+                Password is required
+            </mat-error>
+
+            <mat-error *ngIf="(password.touched || password.dirty) && password.errors?.['pattern']">
+                Please enter a valid Password
+            </mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+
+            <mat-label>Confirm Password</mat-label>
+
+            <input type="password" ngValidateEqual = "password" matInput name="password2" [(ngModel)]="user.password2" #password2="ngModel" required>
+            <!-- (user.password !== user.password2) && password2.touched -->
+
+            <mat-error *ngIf="(password2.dirty || password2.touched) && password2.invalid">
+                <mat-error *ngIf="password2.hasError('notEqual') && password.valid">
+                    password do not match
+                </mat-error>
+
+            </mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+
+            <mat-label>Username</mat-label>
+
+            <input type="username" matInput name="username" [(ngModel)]="user.username" #username="ngModel" placeholder="Joe Doe" required>
+
+            <mat-error *ngIf="(username.touched || username.dirty) && username.errors?.['required']">
+                Username is required
+            </mat-error>
+
+        </mat-form-field>
+
+        <p class="tc">
+            By clicking on sign-up, you agree to Spotify's Terms and Conditions of Use.
+        </p>
+
+        <button (click)="registerUser()"  [disabled]="!form.valid">
+            Sign Up
+        </button>
+
+        <footer>
+            Have an account?
+            <a routerLink="/login">Log in</a>
+        </footer>
+
+    </form>
+
+    <!-- <pre>{{form.value | json}}</pre> -->
+
+</article>

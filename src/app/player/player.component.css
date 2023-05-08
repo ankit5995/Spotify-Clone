@@ -1,0 +1,58 @@
+div {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player {
+    border-radius: 0.5rem;
+    background-color: #181818;
+    width: 500px;
+    height: 600px;
+    padding: 1rem;
+}
+
+.backBtn {
+    cursor: pointer;
+    width: 30px;
+}
+
+.title {
+    width: 100% !important;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.closeBtn {
+    color: #f00;
+    cursor: pointer;
+}
+
+.songBck {
+    display: block;
+    margin-block: 1rem 2.5rem;
+    border-radius: inherit;
+}
+
+.time {
+    font-size: 2em;
+    text-align: center;
+    font-weight: 600;
+    margin-block-end: 2rem;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btns {
+    width: 75px;
+    display: block;
+    cursor: pointer;
+}
+
+.addBtn {
+    cursor: pointer;
+}

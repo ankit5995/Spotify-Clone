@@ -1,0 +1,44 @@
+<div>
+  <mat-card class="player" style="justify-content: space-between; display: flex;">
+
+      <mat-card-actions>
+
+        <mat-card-title>
+            <img class="backBtn" src="../../assets/back.png" alt="back button" (click)="navigateTo()" />
+        </mat-card-title>
+
+        <mat-card-title>
+          <button mat-button (click)="navigateTo()"> <mat-icon>add</mat-icon></button>
+        </mat-card-title>
+
+        <mat-card-title >
+          <button  mat-button (click)="navigateTo()"><img src="../../assets/icons8-favorite-40.png" style="width: 25px ;height: 25px;" alt=""></button>
+        </mat-card-title>
+
+        </mat-card-actions>
+
+          <mat-card-title class="title">{{song.songId}}</mat-card-title>
+          <mat-card-subtitle>{{song.album}}</mat-card-subtitle>
+          <mat-card-subtitle>{{song.artist}}</mat-card-subtitle>
+
+
+
+
+      <img class="songBck" mat-card-image src="../../assets/download.jpg" alt="song background">
+
+      <mat-card-content class="time">
+          <p>
+              {{song.length}}
+          </p>
+      </mat-card-content>
+
+      <mat-card-actions class="footer">
+
+          <img class="playBtn btns" src="../../assets/play.png" alt="play button" (click)="playSound()" (dblclick)="pauseSound()"/>
+
+
+
+      </mat-card-actions>
+
+  </mat-card>
+</div>

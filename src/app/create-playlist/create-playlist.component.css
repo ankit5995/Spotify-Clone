@@ -1,0 +1,58 @@
+header{
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+mat-icon{
+    cursor: pointer;
+    color: #f00;
+}
+.track mat-icon{
+    color: green;
+}
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.playlist {
+    border-radius: 0.5rem;
+    background-color: #181818;
+    width: 500px;
+    min-height: 500px;
+    padding: 1rem;
+}
+mat-form-field{
+    width: 100%;
+}
+.btns {
+    margin-top: 1rem;
+    border-radius: 10rem;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    background-color: #fff;
+    color: #000;
+}
+.tracks{
+    font-size: 0.95em;
+    overflow-y: auto;
+    height: 300px;
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+}
+p{
+    all: unset;
+}
+.track{
+    padding: 0.25em 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid transparent;
+}
+.track:hover{
+    cursor: pointer;
+    border: 1px solid red;
+}

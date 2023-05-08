@@ -1,0 +1,43 @@
+<section class="container">
+  <div class="playlist">
+      <header>
+          <h1>
+              Create Playlist
+          </h1>
+          <mat-icon
+              class="closeBtn"
+              (click)="navigateTo()"
+          >
+              close
+          </mat-icon>
+      </header>
+      <form #form="ngForm">
+
+          <mat-form-field appearance="outline">
+
+              <mat-label>Playlist Name</mat-label>
+
+              <input type="text" minlength="3" matInput name="name" [(ngModel)]="playlist.playListName" #name="ngModel"
+                  placeholder="Saturday night" required>
+
+              <mat-error *ngIf="(name.touched || name.dirty) && name.errors?.['required']">
+                  Playlist name is required.
+              </mat-error>
+
+          </mat-form-field>
+      </form>
+      <section class="tracks">
+          <div *ngFor="let track of songs">
+              <div class="track" (click)="selectTrack(track)">
+                  <p>{{track.songName}}</p>
+                  <mat-icon *ngIf="isAdded(track.songId)" (click)="removeTrack(track.songId)" >check</mat-icon>
+              </div>
+          </div>
+      </section>
+
+      <button class="btns" (click)="savePlaylist()" [disabled]="!form.valid">
+          Save
+      </button>
+
+  </div>
+</section>

@@ -1,0 +1,104 @@
+.main {
+    background-color: 		#303030;
+    height: 100%;
+    overflow-y: auto;
+    position: relative;
+}
+
+.content {
+    padding: 2rem;
+    display: flex;
+    flex-flow: column;
+    gap: 2rem;
+}
+
+.title {
+    margin-bottom: 2rem;
+    font-size: 1.75em;
+    font-weight: 500;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.card {
+    border-radius: 0.5rem;
+    background-color: #181818;
+    width: 200px;
+    height: 250px;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.card:hover {
+    border: 1px solid grey;
+}
+
+.card h3 {
+    margin-block: 1rem 0.5rem;
+}
+
+.card div {
+    width: 100%;
+    height: 60%;
+    border-radius: inherit;
+    background-image: url("../../assets/download.jpg");
+    background-size: cover;
+    background-position-x: -35px;
+}
+aside {
+  background-color: 	#585858;
+  padding: 1rem 2rem;
+  height: 100%;
+}
+
+.spotify {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-block-end: 2rem;
+  font-size: 20px;
+}
+
+.logo {
+  width: 20px;
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: column;
+  gap: 1.5rem;
+}
+
+.menu li, .li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+
+.mainn {
+  display: flex;
+  height: 100%;
+}
+
+.mainn > :nth-child(1) {
+  width: 20%;
+}
+
+.mainn> :nth-child(2) {
+  width: 80%;
+}
+
+
+#songHeader{
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,125 @@
+<div class="mainn">
+  <div class="menu">
+    <aside>
+
+      <header class="spotify">
+
+        <img class="logo" src="../assets/logo.svg" alt="spotify logo" />
+
+        <span>Spotify</span>
+
+      </header>
+
+      <section class="menu">
+
+        <ul>
+
+          <li (click)="getAllSongs()">
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+          </li>
+          <li>
+            <mat-icon>search</mat-icon>
+            <span>Search</span>
+          </li>
+          <li>
+            <mat-icon>book</mat-icon>
+            <span>Your Library</span>
+          </li>
+          <li>
+            <a class="li" [routerLink]="['/playlist', '']">
+              <mat-icon>add</mat-icon>
+              <span>Create Playlist</span>
+            </a>
+          </li>
+          <li>
+            <mat-icon>favorite</mat-icon>
+            <span>Liked Songs</span>
+          </li>
+
+          <div style="margin-bottom: -5px;margin-top: 10px; display: flex;"><mat-icon >playlist_play</mat-icon><span>Playlist</span></div>
+          <mat-divider style="width: 100%;border-top-width: 2.5px ;border-top-color: rgb(234, 234, 234); display: inline-block;"></mat-divider>
+          <li  *ngFor="let playlistName of playlistNames" >
+            <div  (click)="getSongOfPlaylist(playlistName)">
+              <span >{{playlistName}}</span>
+            </div>
+          </li>
+
+
+        </ul>
+
+      </section>
+
+    </aside>
+
+  </div>
+  <main class="main">
+
+      <app-header></app-header>
+
+
+
+
+      <section class="content">
+
+          <section class="category">
+
+            <div id="songHeader">
+                <h2  class="title">
+                  All Songs
+                </h2>
+
+              <div>
+                  <button *ngIf="insidePlaylist" mat-icon-button [matMenuTriggerFor]="menu" >
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+
+                  <a mat-menu-item  [routerLink]="['/playlist',name]">
+                    <mat-icon>add</mat-icon>
+                    <span>Add Song</span>
+                  </a>
+                  <button mat-menu-item  (click)="deletePlaylist()">
+                    <mat-icon>delete</mat-icon>
+                    <span>delete playlist</span>
+                  </button>
+                </mat-menu>
+              </div>
+
+          </div>
+
+
+
+              <section class="cards">
+
+
+                  <article   *ngFor="let track of tracks" >
+
+                    <div class="card" (click)="navigateTo(track.songId)">
+                      <div></div>
+
+                      <h3>
+                          {{track.songName}}
+                      </h3>
+
+                      <p>
+                          {{track.album}}
+                      </p>
+
+                    </div>
+
+
+                      <button *ngIf="insidePlaylist" class="buttondelete" mat-icon-button (click)="deleteSongFromPlaylist(track.songId)"><mat-icon>delete</mat-icon></button>
+
+                  </article>
+
+              </section>
+
+          </section>
+
+      </section>
+
+
+  </main>
+
+</div>

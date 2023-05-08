@@ -1,0 +1,37 @@
+<header class="header">
+
+
+
+  <div *ngIf="isLoggedIn">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+
+
+      <a  mat-menu-item class="btns loginBtn"
+          *ngIf="isLoggedIn"
+          (click)="logoutUser()">
+          <mat-icon>logout</mat-icon>
+          <span>Log out</span></a>
+    </mat-menu>
+  </div>
+
+
+        <div *ngIf="!isLoggedIn">
+
+
+          <a   class="btns loginBtn"
+                routerLink="/login"
+                *ngIf="!isLoggedIn">
+              <span>  Log in</span>
+                 </a>
+
+            <a   class="btns signupBtn"
+                routerLink ="/register"
+                *ngIf="!isLoggedIn">
+                <span>Sign up</span></a>
+
+      </div>
+
+</header>
